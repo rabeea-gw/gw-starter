@@ -26,4 +26,7 @@ composer require sotware-supremacy/gw-starter
 php artisan gw:go
 ```
 
+- Copy `FRONTEND_URL` to your `.env` file and put the frontend url.
+- You can remove the package after you finish.
+
 And you ready to go 🚀
