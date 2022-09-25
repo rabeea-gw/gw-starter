@@ -53,7 +53,7 @@ class InstallCommand extends Command
 
         // Middleware...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
-        copy(__DIR__ . '/../../stubs/app/Http/Middleware/ForceJsonResponse.php', app_path('Http/Middleware'));
+        copy(__DIR__ . '/../../stubs/app/Http/Middleware/ForceJsonResponse.php', app_path('Http/Middleware/ForceJsonResponse.php'));
 
         // Requests...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Requests/Auth'));
