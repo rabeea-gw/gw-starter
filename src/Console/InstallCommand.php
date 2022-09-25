@@ -36,15 +36,15 @@ class InstallCommand extends Command
         (new Filesystem)->delete(base_path('package.json'));
 
         // Casts...
-        (new Filesystem)->ensureDirectoryExists(app_path('Http/Casts'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/app/Http/Casts', app_path('Http/Casts'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Casts'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/app/Casts', app_path('Casts'));
 
         // Exceptions...
         (new Filesystem)->deleteDirectory(app_path('Exceptions'));
         (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/app/Exceptions', app_path('Exceptions'));
 
         // Helpers...
-        (new Filesystem)->ensureDirectoryExists(app_path('Http/Helpers'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Helpers'));
         (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/app/Helpers', app_path('Helpers'));
 
         // Controllers...
