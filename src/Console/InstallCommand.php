@@ -93,21 +93,22 @@ class InstallCommand extends Command
         copy(__DIR__ . '/../../stubs/routes/api.php', base_path('routes/api.php'));
         copy(__DIR__ . '/../../stubs/routes/web.php', base_path('routes/web.php'));
 
-        $this->put_permanent_env('FRONTEND_URL', 'http://localhost:3000');
+        $this->setEnvironmentValue('FRONTEND_URL', 'http://localhost:3000');
 
         $this->components->info('You are now ready to build your app! Happy coding 🫡 🚀');
     }
 
-    public function put_permanent_env($key, $value)
+    public function setEnvironmentValue($envKey, $envValue)
     {
-        $path = base_path('.env');
+        $envFile = app()->environmentFilePath();
+        $str = file_get_contents($envFile);
 
-        $escaped = preg_quote('=' . env($key), '/');
+        $oldValue = env($str, "{$envKey}=");
 
-        file_put_contents($path, preg_replace(
-            "/^{$key}{$escaped}/m",
-            "{$key}={$value}",
-            file_get_contents($path)
-        ));
+        $str = str_replace("{$envKey}={$oldValue}", "{$envKey}={$envValue}\n", $str);
+
+        $fp = fopen($envFile, 'w');
+        fwrite($fp, $str);
+        fclose($fp);
     }
 }
