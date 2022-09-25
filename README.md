@@ -17,7 +17,7 @@ cd example-app
 3. Install the package
 
 ```bash
-composer require sotware-supremacy/gw-starter
+composer require rabeea-gw/gw-starter
 ```
 
 4. Run the following command:

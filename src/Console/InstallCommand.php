@@ -93,8 +93,7 @@ class InstallCommand extends Command
         copy(__DIR__ . '/../../stubs/routes/api.php', base_path('routes/api.php'));
         copy(__DIR__ . '/../../stubs/routes/web.php', base_path('routes/web.php'));
 
-        $this->line("Copy `FRONTEND_URL` to your `.env` file and put the frontend url.");
 
-        $this->info('You are now ready to build your app! Happy coding 🚀');
+        $this->components->info('You are now ready to build your app! Happy coding 🚀');
     }
 }
