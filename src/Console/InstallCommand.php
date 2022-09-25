@@ -52,8 +52,8 @@ class InstallCommand extends Command
         (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/app/Http/Controllers/Auth', app_path('Http/Controllers/Auth'));
 
         // Middleware...
-        (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers/Middleware'));
-        copy(__DIR__ . '/../../stubs/app/Http/Controllers/Middleware/ForceJsonResponse.php', app_path('Http/Controllers/Middleware'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
+        copy(__DIR__ . '/../../stubs/app/Http/Middleware/ForceJsonResponse.php', app_path('Http/Middleware'));
 
         // Requests...
         (new Filesystem)->ensureDirectoryExists(app_path('Http/Requests/Auth'));
