@@ -1,6 +1,6 @@
 <?php
 
-namespace Gw\Starter\Console;
+namespace Gw\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -93,6 +93,21 @@ class InstallCommand extends Command
         copy(__DIR__ . '/../../stubs/routes/api.php', base_path('routes/api.php'));
         copy(__DIR__ . '/../../stubs/routes/web.php', base_path('routes/web.php'));
 
+        $this->put_permanent_env('FRONTEND_URL', 'http://localhost:3000');
+
         $this->components->info('You are now ready to build your app! Happy coding 🫡 🚀');
+    }
+
+    public function put_permanent_env($key, $value)
+    {
+        $path = base_path('.env');
+
+        $escaped = preg_quote('=' . env($key), '/');
+
+        file_put_contents($path, preg_replace(
+            "/^{$key}{$escaped}/m",
+            "{$key}={$value}",
+            file_get_contents($path)
+        ));
     }
 }

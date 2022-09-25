@@ -1,27 +1,12 @@
 <?php
 
-namespace Gw\Starter;
+namespace Gw;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
+use Gw\Console\InstallCommand;
 use Illuminate\Support\ServiceProvider;
 
-class GwStarterServiceProvider extends ServiceProvider implements DeferrableProvider
+class MainServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
         $this->commands(InstallCommand::class);

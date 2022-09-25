@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Gw\\Starter\\": "src/"
+      "Gw\\": "src/"
     }
   },
   "extra": {
@@ -33,7 +33,7 @@
     },
     "laravel": {
       "providers": [
-        "Gw\\Starter\\GwStarterServiceProvider"
+        "Gw\\GwStarterServiceProvider"
       ]
     }
   },
