@@ -16,7 +16,6 @@ Route::post('password/reset', NewPasswordController::class);
 Route::get('get-postman-token', PostmanTokenController::class);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('user', ProfileController::class);
     Route::post('logout', LogoutController::class);
 
     // start from here

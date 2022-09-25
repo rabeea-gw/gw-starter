@@ -29,8 +29,8 @@ class InstallCommand extends Command
     public function handle()
     {
         // Remove unnecessary files...
-        (new Filesystem)->deleteDirectory(resource_path('views/js'));
-        (new Filesystem)->deleteDirectory(resource_path('views/css'));
+        (new Filesystem)->deleteDirectory(resource_path('js'));
+        (new Filesystem)->deleteDirectory(resource_path('css'));
         (new Filesystem)->delete(resource_path('views/welcome.blade.php'));
         (new Filesystem)->delete(base_path('vite.config.js'));
         (new Filesystem)->delete(base_path('package.json'));
